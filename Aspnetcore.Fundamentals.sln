@@ -1,5 +1,5 @@
 
-Microsoft Visual Studio Solution File, Format Version 12.00
+Microsoft Visual Studio Solution File, Format Version 15.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspnetcore.Fundamentals", "Aspnetcore.Fundamentals\Aspnetcore.Fundamentals.csproj", "{5DFC0743-284C-47AB-B966-597E9E2E319F}"
 EndProject

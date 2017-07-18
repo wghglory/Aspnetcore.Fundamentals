@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Aspnetcore.Fundamentals.Models.Restaurant>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food</title>
+</head>
+<body>
+<h1>Welcome!</h1>
+
+<table>
+    @foreach (var restaurant in Model)
+    {
+        <tr>
+            <td>@restaurant.Id</td>
+            <td>@restaurant.Name</td>
+        </tr>
+    }
+</table>
+
+</body>
+</html>

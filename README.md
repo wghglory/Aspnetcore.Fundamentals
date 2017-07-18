@@ -5,7 +5,7 @@ Microsoft official document: https://docs.microsoft.com/en-us/aspnet/core/gettin
 https://app.pluralsight.com/library/courses/aspdotnet-core-fundamentals/table-of-contents
 
 - [Building Your First ASP.NET Core Application](build-first-netcore.md)
-- [Startup and Middleware](https://app.pluralsight.com/player?course=aspdotnet-core-fundamentals&author=scott-allen&name=aspdotnet-core-fundamentals-m2&clip=0&mode=live)
+- [Startup and Middleware](setup-middleware.md)
 - [Controllers in the MVC Framework](https://app.pluralsight.com/player?course=aspdotnet-core-fundamentals&author=scott-allen&name=aspdotnet-core-fundamentals-m3&clip=0&mode=live)
 - [Models in the MVC Framework](https://app.pluralsight.com/player?course=aspdotnet-core-fundamentals&author=scott-allen&name=aspdotnet-core-fundamentals-m4&clip=0&mode=live)
 - [Using the Entity Framework](https://app.pluralsight.com/player?course=aspdotnet-core-fundamentals&author=scott-allen&name=aspdotnet-core-fundamentals-m5&clip=0&mode=live)

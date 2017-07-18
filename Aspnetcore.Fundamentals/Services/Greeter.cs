@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 
-namespace Aspnetcore.Fundamentals
+namespace Aspnetcore.Fundamentals.Services
 {
 
     public interface IGreeter
