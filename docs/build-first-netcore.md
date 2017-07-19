@@ -1,3 +1,5 @@
+# Build First .Net Core Application
+
 ## Project Setup
 
 1. Create a repo in github with README.md and LICENSE
@@ -106,4 +108,3 @@ nuget push
 msbuild
 dotnet install script
 ```
-

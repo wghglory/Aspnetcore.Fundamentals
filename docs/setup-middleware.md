@@ -1,6 +1,8 @@
+# Setup Middlewares
+
 ## Install packages
 
-```
+```bash
 Install-Package Microsoft.AspNetCore.Mvc
 Install-Package Microsoft.AspNetCore.StaticFiles
 ```
@@ -90,5 +92,3 @@ namespace Aspnetcore.Fundamentals
     }
 }
 ```
-
-

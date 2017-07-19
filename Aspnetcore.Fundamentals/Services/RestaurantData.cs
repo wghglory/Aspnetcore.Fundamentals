@@ -9,6 +9,7 @@ namespace Aspnetcore.Fundamentals.Services
         IEnumerable<Restaurant> GetAll();
         Restaurant Get(int id);
         Restaurant Add(Restaurant newRestaurant);
+        void Commit();
     }
 
     public class MySqlRestaurantData : IRestaurantData
@@ -23,8 +24,12 @@ namespace Aspnetcore.Fundamentals.Services
         public Restaurant Add(Restaurant newRestaurant)
         {
             _context.Add(newRestaurant);
-            _context.SaveChanges();
             return newRestaurant;
+        }
+
+        public void Commit()
+        {
+            _context.SaveChanges();
         }
 
         public Restaurant Get(int id)
@@ -67,6 +72,10 @@ namespace Aspnetcore.Fundamentals.Services
             Restaurants.Add(newRestaurant);
 
             return newRestaurant;
+        }
+
+        public void Commit()
+        {
         }
 
         private static readonly List<Restaurant> Restaurants;

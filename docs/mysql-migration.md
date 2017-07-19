@@ -4,7 +4,7 @@
 - Microsoft.AspNetCore.Mvc
 - Microsoft.AspNetCore.StaticFiles
 - Microsoft.NETCORE.App
-- MongoDB.Driver
+- MongoDB.Driver (official)
 - **Microsoft.EntityFrameworkCore.Tools** (for migration)
 - **Microsoft.EntityFrameworkCore.Tools.DotNet** (for dotnet ef)
 - **MySql.Data.EntityFrameworkCore** (official)
@@ -93,7 +93,6 @@ namespace Aspnetcore.Fundamentals.Services
 ```csharp
 using Aspnetcore.Fundamentals.Models;
 using Aspnetcore.Fundamentals.Services;
-using Microsoft.EntityFrameworkCore;
 using MySQL.Data.EntityFrameworkCore.Extensions;
 
 namespace Aspnetcore.Fundamentals
@@ -114,7 +113,7 @@ namespace Aspnetcore.Fundamentals
 }
 ```
 
-### It's time to run migration!
+### It's time to run migration
 
 #### Commands for Package Manager Console
 
@@ -135,7 +134,6 @@ Modify `.csproj` file and manually add `<DotNetCliToolReference Include="Microso
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.2" />
-    <PackageReference Include="MongoDB.Driver" Version="2.4.4" />
     
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.1" />
@@ -160,6 +158,6 @@ After `dotnet ef migrations add InitCreate` and `dotnet ef database update`, Mys
 
 Then we should be able to run our project successfully!
 
-### More about migration 
+### More about migration
 
 http://www.learnentityframeworkcore.com/migrations
