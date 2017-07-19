@@ -11,6 +11,34 @@ namespace Aspnetcore.Fundamentals.Services
         Restaurant Add(Restaurant newRestaurant);
     }
 
+    public class MySqlRestaurantData : IRestaurantData
+    {
+        private readonly FoodDbContext _context;
+
+        public MySqlRestaurantData(FoodDbContext context)
+        {
+            _context = context;
+        }
+
+        public Restaurant Add(Restaurant newRestaurant)
+        {
+            _context.Add(newRestaurant);
+            _context.SaveChanges();
+            return newRestaurant;
+        }
+
+        public Restaurant Get(int id)
+        {
+            return _context.Restaurants.FirstOrDefault(r => r.Id == id);
+        }
+
+        public IEnumerable<Restaurant> GetAll()
+        {
+            return _context.Restaurants;
+        }
+    }
+
+
     public class InMemoryRestaurantData : IRestaurantData
     {
         static InMemoryRestaurantData()

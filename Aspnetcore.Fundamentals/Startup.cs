@@ -1,11 +1,14 @@
-﻿using Aspnetcore.Fundamentals.Services;
+﻿using Aspnetcore.Fundamentals.Models;
+using Aspnetcore.Fundamentals.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using MySQL.Data.EntityFrameworkCore.Extensions;
 
 namespace Aspnetcore.Fundamentals
 {
@@ -30,12 +33,16 @@ namespace Aspnetcore.Fundamentals
             services.AddMvc();
             services.AddSingleton(Configuration);
             services.AddSingleton<IGreeter, Greeter>();
-            services.AddScoped<IRestaurantData, InMemoryRestaurantData>();
+            //            services.AddScoped<IRestaurantData, InMemoryRestaurantData>();
+            services.AddScoped<IRestaurantData, MySqlRestaurantData>();
 
             /* AddSingleton: a single instance of a service that is used throughout the application, everyone sees the same instance. 
 			 * AddScoped: add a service instance that will be scoped to an HTTP request. 
 			 * So all of the components inside of a single request will see the same instance, 
 			 * but across two different HTTP requests, there will be two different instances. */
+
+            services.AddDbContext<FoodDbContext>(options =>
+                                                 options.UseMySQL(Configuration.GetConnectionString("MysqlConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,7 +72,7 @@ namespace Aspnetcore.Fundamentals
             // app.UseMvcWithDefaultRoute();
             app.UseMvc(ConfigureRoutes);
 
- 
+
             //app.Run(async (context) =>
             //{
             //    string message = greeter.GetGreeting();
