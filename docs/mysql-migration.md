@@ -128,7 +128,7 @@ Update-Database  # applying a migration
 
 #### Commands for CLI
 
-Modify `.csproj` file
+Modify `.csproj` file and manually add `<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.1" />` if necessary
 
 ```xml
   <ItemGroup>
@@ -159,3 +159,7 @@ dotnet ef database update  # applying a migration
 After `dotnet ef migrations add InitCreate` and `dotnet ef database update`, Mysql should have a new database called `Food` with `__EFMigrationsHistory` and `Restaurants` table.
 
 Then we should be able to run our project successfully!
+
+### More about migration 
+
+http://www.learnentityframeworkcore.com/migrations
