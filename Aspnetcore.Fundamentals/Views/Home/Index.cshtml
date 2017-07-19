@@ -1,20 +1,12 @@
 ﻿@model Aspnetcore.Fundamentals.ViewModels.HomeViewModel
 
 @{
-    Layout = null;
+    ViewBag.Title = "Home";
 }
 
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>Food</title>
-</head>
-<body>
 <h1>Welcome!</h1>
-<h3>@Model.CurrentMessage</h3>
-<table>
+
+@*<table>
     @foreach (var restaurant in Model.Restaurants)
     {
         <tr>
@@ -25,7 +17,13 @@
             <td>@restaurant.Name</td>
         </tr>
     }
-</table>
+</table>*@
 
-</body>
-</html>
+@foreach (var restaurant in Model.Restaurants)
+{
+    @Html.Partial("_Summary", restaurant)
+}
+
+<div>
+    <a asp-action="Create">Create</a>
+</div>
