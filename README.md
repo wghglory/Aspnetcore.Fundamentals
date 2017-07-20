@@ -7,8 +7,7 @@ https://app.pluralsight.com/library/courses/aspdotnet-core-fundamentals/table-of
 - [Building Your First ASP.NET Core Application](docs/build-first-netcore.md)
 - [Startup and Middleware](docs/setup-middleware.md)
 - [MySql, Entity Framework Migration Code First](docs/mysql-migration.md)
-- [ViewComponents](/docs/viewcomponents.md)
-- [ASP.NET Identity](https://app.pluralsight.com/player?course=aspdotnet-core-fundamentals&author=scott-allen&name=aspdotnet-core-fundamentals-m7&clip=0&mode=live)
+- [ViewComponents](docs/viewcomponents.md)
+- [ViewImports and TagHelper](docs/viewimport-tagHelper.md)
+- [ASP.NET Identity, Register, Login](docs/identity.md)
 - [Front End Frameworks and Tools](https://app.pluralsight.com/player?course=aspdotnet-core-fundamentals&author=scott-allen&name=aspdotnet-core-fundamentals-m8&clip=0&mode=live)
-
-

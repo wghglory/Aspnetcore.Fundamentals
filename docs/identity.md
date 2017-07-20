@@ -77,7 +77,7 @@ namespace Aspnetcore.Fundamentals
 }
 ```
 
-## Create 2 viewmodels
+## Create 2 view models
 
 ##### LoginViewModel.cs
 
@@ -257,7 +257,7 @@ namespace Aspnetcore.Fundamentals.Controllers
 </form>
 ```
 
-Login.csthml
+## Login.csthml
 
 ```html
 @model LoginViewModel
@@ -287,6 +287,7 @@ Login.csthml
     <input type="submit" value="Login"/>
 </form>
 ```
+
 ## Apply authentication to HomeController
 
 Put `[Authorize]` tag to the controller. We want any user can access Home/Index, so put `[AllowAnonymous]` there.
@@ -383,6 +384,67 @@ namespace Aspnetcore.Fundamentals.Controllers
         }
     }
 }
+```
+
+## Add login logout to view
+
+##### ViewComponents/LoginLogoutViewComponent.cs
+
+```csharp
+using Microsoft.AspNetCore.Mvc;
+
+namespace Aspnetcore.Fundamentals.ViewComponents
+{
+    public class LoginLogoutViewComponent : ViewComponent
+    {
+        public IViewComponentResult Invoke()
+        {
+            return View();
+        }
+    }
+}
+```
+
+##### Views/Shared/Components/LoginLogout/Default.cshtml
+
+```html
+@if (User.Identity.IsAuthenticated)
+{
+    <span>Hello, @User.Identity.Name</span>
+    <form method="post" asp-controller="Account" asp-action="Logout" asp-antiforgery="true">
+        <input type="submit" value="Logout"/>
+    </form>
+}
+else
+{
+    <a asp-controller="Account" asp-action="Register">Register</a>
+    <a asp-controller="Account" asp-action="Login">Login</a>
+}
+```
+
+##### _Layout.cshtml
+
+```diff
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+<div>
++    @await Component.InvokeAsync("LoginLogout")
+</div>
+<div>
+    @RenderBody()
+</div>
+<footer>
+    @RenderSection("footer", required: false)
+    @await Component.InvokeAsync("Greeting")
+</footer>
+</body>
+</html>
 ```
 
 ## Migration
