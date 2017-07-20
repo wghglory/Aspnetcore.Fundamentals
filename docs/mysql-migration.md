@@ -20,7 +20,7 @@ appsettings.json
 {
   "ConnectionStrings": {
     // "MssqlConnection": "Server=(localdb)\\MSSQLLocalDB;Database=_CHANGE_ME;Trusted_Connection=True;MultipleActiveResultSets=true"    //sql server
-    "MysqlConnection": "Server=localhost;Database=Food;userid=derek;pwd=derek;port=3306;sslmode=none;Character Set=utf8"
+    "MysqlConnection": "Server=localhost;Database=AspnetcoreFundamentalsFood;userid=derek;pwd=derek;port=3306;sslmode=none;Charset=utf8;"
   }
 }
 ```
