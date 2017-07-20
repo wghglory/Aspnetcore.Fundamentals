@@ -52,18 +52,18 @@ using Aspnetcore.Fundamentals.Models;
 
 namespace Aspnetcore.Fundamentals.Services
 {
-    public interface IRestaurantData
+    public interface IRestaurantRepository
     {
         IEnumerable<Restaurant> GetAll();
         Restaurant Get(int id);
         Restaurant Add(Restaurant newRestaurant);
     }
 
-    public class MySqlRestaurantData : IRestaurantData
+    public class MySqlrestaurantRepository : IRestaurantRepository
     {
         private readonly FoodDbContext _context;
 
-        public MySqlRestaurantData(FoodDbContext context)
+        public MySqlrestaurantRepository(FoodDbContext context)
         {
             _context = context;
         }
@@ -104,7 +104,7 @@ namespace Aspnetcore.Fundamentals
             services.AddMvc();
             // ...
             
-            services.AddScoped<IRestaurantData, MySqlRestaurantData>();
+            services.AddScoped<IRestaurantRepository, MySqlrestaurantRepository>();
 
             services.AddDbContext<FoodDbContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("MysqlConnection")));

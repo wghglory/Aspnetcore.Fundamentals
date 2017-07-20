@@ -33,8 +33,8 @@ namespace Aspnetcore.Fundamentals
             services.AddMvc();
             services.AddSingleton(Configuration);
             services.AddSingleton<IGreeter, Greeter>();
-            //            services.AddScoped<IRestaurantData, InMemoryRestaurantData>();
-            services.AddScoped<IRestaurantData, MySqlRestaurantData>();
+            //            services.AddScoped<IRestaurantRepository, InMemoryRestaurantRepository>();
+            services.AddScoped<IRestaurantRepository, MySqlRestaurantRepository>();
 
             /* AddSingleton: a single instance of a service that is used throughout the application, everyone sees the same instance. 
 			 * AddScoped: add a service instance that will be scoped to an HTTP request. 

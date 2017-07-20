@@ -305,11 +305,11 @@ namespace Aspnetcore.Fundamentals.Controllers
     public class HomeController : Controller
     {
         private readonly IGreeter _greeter;
-        private readonly IRestaurantData _restaurantData;
+        private readonly IRestaurantRepository _restaurantRepository;
 
-        public HomeController(IRestaurantData restaurantData, IGreeter greeter)
+        public HomeController(IRestaurantRepository restaurantRepository, IGreeter greeter)
         {
-            _restaurantData = restaurantData;
+            _restaurantRepository = restaurantRepository;
             _greeter = greeter;
         }
 
@@ -318,7 +318,7 @@ namespace Aspnetcore.Fundamentals.Controllers
         {
             var model = new HomeViewModel
             {
-                Restaurants = _restaurantData.GetAll(),
+                Restaurants = _restaurantRepository.GetAll(),
                 CurrentMessage = _greeter.GetGreeting()
             };
 
@@ -327,7 +327,7 @@ namespace Aspnetcore.Fundamentals.Controllers
 
         public IActionResult Details(int id)
         {
-            var model = _restaurantData.Get(id);
+            var model = _restaurantRepository.Get(id);
             if (model == null)
             {
                 return RedirectToAction(nameof(Index));
@@ -352,8 +352,8 @@ namespace Aspnetcore.Fundamentals.Controllers
                 Cuisine = model.Cuisine,
                 Name = model.Name
             };
-            newRestaurant = _restaurantData.Add(newRestaurant);
-            _restaurantData.Commit(); // business layer determines when to interact with database
+            newRestaurant = _restaurantRepository.Add(newRestaurant);
+            _restaurantRepository.Commit(); // business layer determines when to interact with database
 
             return RedirectToAction("Details", new {id = newRestaurant.Id});
         }
@@ -361,7 +361,7 @@ namespace Aspnetcore.Fundamentals.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var model = _restaurantData.Get(id);
+            var model = _restaurantRepository.Get(id);
             if (model == null)
             {
                 return RedirectToAction(nameof(Index));
@@ -373,13 +373,13 @@ namespace Aspnetcore.Fundamentals.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(int id, RestaurantEditViewModel model)
         {
-            var restaurant = _restaurantData.Get(id);
+            var restaurant = _restaurantRepository.Get(id);
 
             if (!ModelState.IsValid) return View(restaurant);
 
             restaurant.Cuisine = model.Cuisine;
             restaurant.Name = model.Name;
-            _restaurantData.Commit();
+            _restaurantRepository.Commit();
             return RedirectToAction(nameof(Details), new {id = restaurant.Id});
         }
     }

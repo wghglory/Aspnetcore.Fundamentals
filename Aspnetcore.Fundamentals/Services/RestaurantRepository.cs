@@ -4,7 +4,7 @@ using Aspnetcore.Fundamentals.Models;
 
 namespace Aspnetcore.Fundamentals.Services
 {
-    public interface IRestaurantData
+    public interface IRestaurantRepository
     {
         IEnumerable<Restaurant> GetAll();
         Restaurant Get(int id);
@@ -12,11 +12,11 @@ namespace Aspnetcore.Fundamentals.Services
         void Commit();
     }
 
-    public class MySqlRestaurantData : IRestaurantData
+    public class MySqlRestaurantRepository : IRestaurantRepository
     {
         private readonly FoodDbContext _context;
 
-        public MySqlRestaurantData(FoodDbContext context)
+        public MySqlRestaurantRepository(FoodDbContext context)
         {
             _context = context;
         }
@@ -44,9 +44,9 @@ namespace Aspnetcore.Fundamentals.Services
     }
 
 
-    public class InMemoryRestaurantData : IRestaurantData
+    public class InMemoryRestaurantRepository  : IRestaurantRepository
     {
-        static InMemoryRestaurantData()
+        static InMemoryRestaurantRepository()
         {
             Restaurants = new List<Restaurant>
             {
