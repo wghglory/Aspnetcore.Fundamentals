@@ -72,6 +72,8 @@ namespace Aspnetcore.Fundamentals
 
             app.UseFileServer(); //Microsoft.AspNetCore.StaticFiles
 
+            app.UseNodeModules(env.ContentRootPath); // middleware to read node_modules as static files
+            
             app.UseIdentity();
 
             // app.UseMvcWithDefaultRoute();

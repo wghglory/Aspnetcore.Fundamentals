@@ -10,4 +10,4 @@ https://app.pluralsight.com/library/courses/aspdotnet-core-fundamentals/table-of
 - [ViewComponents](docs/viewcomponents.md)
 - [ViewImports and TagHelper](docs/viewimport-tagHelper.md)
 - [ASP.NET Identity, Register, Login](docs/identity.md)
-- [Front End Frameworks and Tools](https://app.pluralsight.com/player?course=aspdotnet-core-fundamentals&author=scott-allen&name=aspdotnet-core-fundamentals-m8&clip=0&mode=live)
+- [Create Middleware, Frontend Bootstrap, Validation](frontend.md)

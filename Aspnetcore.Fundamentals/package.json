@@ -1,0 +1,32 @@
+{
+  "name": "aspnetcore-fundamentals-food",
+  "version": "1.0.0",
+  "description": "aspnet core fundamentals",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wghglory/Aspnetcore.Fundamentals.git"
+  },
+  "keywords": [
+    ".net",
+    "core",
+    "mysql",
+    "identity",
+    "entityframework"
+  ],
+  "author": "Guanghui Wang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wghglory/Aspnetcore.Fundamentals/issues"
+  },
+  "homepage": "https://github.com/wghglory/Aspnetcore.Fundamentals#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "jquery-validation": "^1.16.0",
+    "jquery-validation-unobtrusive": "^3.2.6"
+  }
+}
