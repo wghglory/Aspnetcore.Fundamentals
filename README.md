@@ -1,4 +1,4 @@
-# aspdotnet-core-fundamentals (.net core v1.1.2)
+# Asp.net core fundamentals (.net core v1.1.2)
 
 This project follows https://app.pluralsight.com/library/courses/aspdotnet-core-fundamentals. I use Visual Studio Mac and Rider to finish it in mac os platform. And Mysql is used instead of MSSQL.
 
@@ -11,6 +11,20 @@ Table of Content:
 - [ViewImports and TagHelper](docs/viewimport-tagHelper.md)
 - [ASP.NET Identity, Register, Login](docs/identity.md)
 - [Create Middleware, Frontend Bootstrap, Validation](docs/frontend.md)
+
+## Running the project
+
+```bash
+dotnet restore
+dotnet ef database update
+npm install
+dotnet run
+```
+
+## Todo
+
+1. Check "Create" new food
+1. DbInitializer Seed
 
 ## More reference
 

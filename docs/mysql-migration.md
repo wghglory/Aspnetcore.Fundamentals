@@ -4,8 +4,8 @@
 - Microsoft.AspNetCore.Mvc
 - Microsoft.AspNetCore.StaticFiles
 - Microsoft.NETCORE.App
-- **Microsoft.EntityFrameworkCore.Tools** (for migration)
-- **Microsoft.EntityFrameworkCore.Tools.DotNet** (for dotnet ef)
+- **Microsoft.EntityFrameworkCore.Tools** (for PMC: Add-Migration, Update-Database)
+- **Microsoft.EntityFrameworkCore.Tools.DotNet** (for Cli: dotnet ef migrations add, dotnet ef database update)
 - **Pomelo.EntityFrameworkCore.MySql** (3rd party library)
 - MySql.Data.EntityFrameworkCore (official pre 8.0.8 not working well)
 - MongoDB.Driver (official)
@@ -136,7 +136,6 @@ Modify `.csproj` file and manually add `<DotNetCliToolReference Include="Microso
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.2" />
     
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.1.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.1" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="1.1.2" />
   </ItemGroup>
   <ItemGroup>
