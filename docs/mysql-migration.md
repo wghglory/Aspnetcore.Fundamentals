@@ -4,11 +4,11 @@
 - Microsoft.AspNetCore.Mvc
 - Microsoft.AspNetCore.StaticFiles
 - Microsoft.NETCORE.App
-- MongoDB.Driver (official)
 - **Microsoft.EntityFrameworkCore.Tools** (for migration)
 - **Microsoft.EntityFrameworkCore.Tools.DotNet** (for dotnet ef)
-- **MySql.Data.EntityFrameworkCore** (official)
-- // Pomelo.EntityFrameworkCore.MySql (3rd party library)
+- **Pomelo.EntityFrameworkCore.MySql** (3rd party library)
+- MySql.Data.EntityFrameworkCore (official pre 8.0.8 not working well)
+- MongoDB.Driver (official)
 
 ## Code First, Migration
 
@@ -93,7 +93,7 @@ namespace Aspnetcore.Fundamentals.Services
 ```csharp
 using Aspnetcore.Fundamentals.Models;
 using Aspnetcore.Fundamentals.Services;
-using MySQL.Data.EntityFrameworkCore.Extensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace Aspnetcore.Fundamentals
 {
@@ -107,7 +107,7 @@ namespace Aspnetcore.Fundamentals
             services.AddScoped<IRestaurantData, MySqlRestaurantData>();
 
             services.AddDbContext<FoodDbContext>(options =>
-                options.UseMySQL(Configuration.GetConnectionString("MysqlConnection")));
+                options.UseMySql(Configuration.GetConnectionString("MysqlConnection")));
         }
     }
 }
@@ -137,7 +137,7 @@ Modify `.csproj` file and manually add `<DotNetCliToolReference Include="Microso
     
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.1" />
-    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.8-dmr" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="1.1.2" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.1" />

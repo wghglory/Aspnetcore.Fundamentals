@@ -1,10 +1,12 @@
 ﻿using Aspnetcore.Fundamentals.Models;
 using Aspnetcore.Fundamentals.Services;
 using Aspnetcore.Fundamentals.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Aspnetcore.Fundamentals.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IGreeter _greeter;
@@ -16,6 +18,7 @@ namespace Aspnetcore.Fundamentals.Controllers
             _greeter = greeter;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var model = new HomeViewModel

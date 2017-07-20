@@ -3,11 +3,12 @@ using Aspnetcore.Fundamentals.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using MySQL.Data.EntityFrameworkCore.Extensions;
 
 namespace Aspnetcore.Fundamentals
 {
@@ -41,7 +42,10 @@ namespace Aspnetcore.Fundamentals
 			 * but across two different HTTP requests, there will be two different instances. */
 
             services.AddDbContext<FoodDbContext>(options =>
-                                                 options.UseMySQL(Configuration.GetConnectionString("MysqlConnection")));
+                options.UseMySql(Configuration.GetConnectionString("MysqlConnection")));
+
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<FoodDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,6 +71,8 @@ namespace Aspnetcore.Fundamentals
             }
 
             app.UseFileServer(); //Microsoft.AspNetCore.StaticFiles
+
+            app.UseIdentity();
 
             // app.UseMvcWithDefaultRoute();
             app.UseMvc(ConfigureRoutes);
