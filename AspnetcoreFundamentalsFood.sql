@@ -11,7 +11,7 @@
  Target Server Version : 50719
  File Encoding         : utf-8
 
- Date: 07/20/2017 12:06:59 PM
+ Date: 07/21/2017 11:44:12 AM
 */
 
 SET NAMES utf8mb4;
@@ -29,7 +29,7 @@ CREATE TABLE `AspNetRoleClaims` (
   PRIMARY KEY (`Id`),
   KEY `IX_AspNetRoleClaims_RoleId` (`RoleId`),
   CONSTRAINT `FK_AspNetRoleClaims_AspNetRoles_RoleId` FOREIGN KEY (`RoleId`) REFERENCES `AspNetRoles` (`Id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `AspNetRoles`
@@ -42,7 +42,7 @@ CREATE TABLE `AspNetRoles` (
   `NormalizedName` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   UNIQUE KEY `RoleNameIndex` (`NormalizedName`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `AspNetUserClaims`
@@ -56,7 +56,7 @@ CREATE TABLE `AspNetUserClaims` (
   PRIMARY KEY (`Id`),
   KEY `IX_AspNetUserClaims_UserId` (`UserId`),
   CONSTRAINT `FK_AspNetUserClaims_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `AspNetUserLogins`
@@ -70,7 +70,7 @@ CREATE TABLE `AspNetUserLogins` (
   PRIMARY KEY (`LoginProvider`,`ProviderKey`),
   KEY `IX_AspNetUserLogins_UserId` (`UserId`),
   CONSTRAINT `FK_AspNetUserLogins_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `AspNetUserRoles`
@@ -83,7 +83,7 @@ CREATE TABLE `AspNetUserRoles` (
   KEY `IX_AspNetUserRoles_RoleId` (`RoleId`),
   CONSTRAINT `FK_AspNetUserRoles_AspNetRoles_RoleId` FOREIGN KEY (`RoleId`) REFERENCES `AspNetRoles` (`Id`) ON DELETE CASCADE,
   CONSTRAINT `FK_AspNetUserRoles_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `AspNetUsers` (`Id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `AspNetUserTokens`
@@ -95,7 +95,7 @@ CREATE TABLE `AspNetUserTokens` (
   `Name` varchar(127) NOT NULL,
   `Value` longtext,
   PRIMARY KEY (`UserId`,`LoginProvider`,`Name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `AspNetUsers`
@@ -120,13 +120,13 @@ CREATE TABLE `AspNetUsers` (
   PRIMARY KEY (`Id`),
   UNIQUE KEY `UserNameIndex` (`NormalizedUserName`),
   KEY `EmailIndex` (`NormalizedEmail`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `AspNetUsers`
 -- ----------------------------
 BEGIN;
-INSERT INTO `AspNetUsers` VALUES ('e077bff8-70b2-4e67-86f2-f8c8e3ac6475', '0', '4bcc2c6d-19bd-4495-b746-e2afe8fdc6ab', null, b'0', b'1', null, null, 'WGHGLORY', 'AQAAAAEAACcQAAAAEMfe7duCnl4XEFZx9D6FjqwUlL/RlCITBhUvivTMVv8+5f2il2JZuF8UEULYm/iGhg==', null, b'0', 'fce5a890-6b78-4549-9c6b-f9fdbb963509', b'0', 'wghglory');
+INSERT INTO `AspNetUsers` VALUES ('c35eb4e1-9ea3-4ce2-858f-d30c2755f02b', '0', 'ac1d6457-9fde-4508-b445-ab29ffd59343', null, b'0', b'1', null, null, 'WGHGLORY', 'AQAAAAEAACcQAAAAELLSDKoJdfSGYRVwazUz6bL29yHyXVUyhOvGxbONdbT9V5H+zmlDoa5Mq3wykUuUYQ==', null, b'0', '07195b7d-e081-4760-9bdd-16c39cb6e5ef', b'0', 'wghglory');
 COMMIT;
 
 -- ----------------------------
@@ -134,17 +134,17 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `Restaurants`;
 CREATE TABLE `Restaurants` (
-  `Id` int(11) NOT NULL,
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Cuisine` int(11) NOT NULL,
   `Name` varchar(80) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `Restaurants`
 -- ----------------------------
 BEGIN;
-INSERT INTO `Restaurants` VALUES ('1', '3', 'Ramen'), ('2', '3', 'Hotpot'), ('3', '3', 'Chicken'), ('4', '2', 'Pork Rice'), ('5', '2', 'Zuni '), ('6', '2', 'Apple Pie');
+INSERT INTO `Restaurants` VALUES ('1', '4', 'The House of Kobe'), ('2', '2', 'LJ\'s and the Kat'), ('3', '1', 'King\'s Contrivance');
 COMMIT;
 
 -- ----------------------------
@@ -155,13 +155,13 @@ CREATE TABLE `__EFMigrationsHistory` (
   `MigrationId` varchar(95) NOT NULL,
   `ProductVersion` varchar(32) NOT NULL,
   PRIMARY KEY (`MigrationId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `__EFMigrationsHistory`
 -- ----------------------------
 BEGIN;
-INSERT INTO `__EFMigrationsHistory` VALUES ('20170719062805_InitCreate', '1.1.2'), ('20170720030818_Identity', '1.1.2'), ('20170720035906_UpdateConnectionString', '1.1.2'), ('20170720040447_UpdateConnectionString', '1.1.2');
+INSERT INTO `__EFMigrationsHistory` VALUES ('20170719062805_InitCreate', '1.1.2'), ('20170720030818_Identity', '1.1.2');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
