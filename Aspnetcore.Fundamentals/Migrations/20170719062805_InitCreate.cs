@@ -13,7 +13,7 @@ namespace Aspnetcore.Fundamentals.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("MySQL:AutoIncrement", true),
+                        .Annotation("MySql:ValueGeneratedOnAdd", true),
                     Cuisine = table.Column<int>(nullable: false),
                     Name = table.Column<string>(maxLength: 80, nullable: false)
                 },

@@ -13,6 +13,9 @@ namespace Aspnetcore.Fundamentals.Models
 
     public class Restaurant
     {
+        //By convention, a property named Id or <type name>Id will be configured as the key of an entity.
+        // [DatabaseGenerated(DatabaseGeneratedOption.Identity)] or [Key] is not needed following this convention
+
         public int Id { get; set; }
 
         [Required, MaxLength(80)]
